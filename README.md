@@ -37,9 +37,12 @@ This frontend application is built using the following stack:
 - **Icons**: React Icons
 
 ---
+
 ## Contact
 
 Any suggestion or feedback - varunaradhya32@gmai.com
+
+---
 
 ## Backend Repo
 
