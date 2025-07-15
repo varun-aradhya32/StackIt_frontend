@@ -12,7 +12,7 @@ function Register({ onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, { username, email, password });
+      await axios.post(`${process.env.REACT_APP_API_URL}api/auth/register`, { username, email, password });
 
       if (onClose) onClose(); // close modal
       navigate('/login'); // optional: direct to login (or auto open sign-in modal)
