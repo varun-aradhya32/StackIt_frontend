@@ -46,7 +46,7 @@ const QuestionDetail = () => {
       }
 
       const response = await axios.post(
-        '${process.env.REACT_APP_API_URL}api/answers/answer',
+        'https://stackit-production-42de.up.railway.app/api/answers/answer',
         {
           content: answer.trim(),
           questionId: id,
