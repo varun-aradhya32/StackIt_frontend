@@ -78,7 +78,7 @@ const PostQuestion = () => {
       }
 
       const response = await axios.post(
-        '${process.env.REACT_APP_API_URL}/api/questions',
+        '${process.env.REACT_APP_API_URL}api/questions',
         {
           title: title.trim(),
           description: description.trim(), // HTML from Quill

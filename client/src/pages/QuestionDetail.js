@@ -13,7 +13,7 @@ const QuestionDetail = () => {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/questions/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}api/questions/${id}`);
         setQuestion(response.data);
         setAnswers(response.data.answers || []);
       } catch (err) {
@@ -46,7 +46,7 @@ const QuestionDetail = () => {
       }
 
       const response = await axios.post(
-        '${process.env.REACT_APP_API_URL}/api/answers/answer',
+        '${process.env.REACT_APP_API_URL}api/answers/answer',
         {
           content: answer.trim(),
           questionId: id,
@@ -77,7 +77,7 @@ const QuestionDetail = () => {
       }
 
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/answers/${answerId}/vote`,
+        `${process.env.REACT_APP_API_URL}api/answers/${answerId}/vote`,
         { voteType },
         { headers: { Authorization: `Bearer ${token}` } }
       );

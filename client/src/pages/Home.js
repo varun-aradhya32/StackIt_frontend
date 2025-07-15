@@ -13,7 +13,7 @@ function Home() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/api/questions`)
+    axios.get(`${process.env.REACT_APP_API_URL}api/questions`)
       .then(res => {
         setQuestions(res.data);
         setFiltered(res.data);
