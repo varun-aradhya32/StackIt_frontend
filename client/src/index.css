@@ -1,0 +1,78 @@
+/* Reset */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container: full viewport height, flex column */
+.app-container {
+  min-height: 100vh;      /* fill screen height */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content grows to fill space between header and footer */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;          /* Optional, adjust as needed */
+  box-sizing: border-box;
+  /* Optional: scroll if content is large */
+  overflow-y: auto;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #343a40;
+  color: white;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;    /* vertical center */
+  justify-content: center; /* horizontal center */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Footer internal layout */
+.footer .row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copywright, .footer-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-icons {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  font-size: 1.25rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #0d6efd;
+}
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
