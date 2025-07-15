@@ -11,7 +11,7 @@ function Login({ onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('${process.env.REACT_APP_API_URL}api/auth/login', { email, password });
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}api/auth/login`, { email, password });
 
       const userInfo = {
         _id: res.data._id,
