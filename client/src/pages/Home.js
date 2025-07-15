@@ -65,10 +65,15 @@ function Home() {
                   <Link to={`/question/${qn._id}`}>{qn.title}</Link>
                 </Card.Title>
                 <Card.Text>
-                  {qn.description.length > 120
-                    ? qn.description.substring(0, 120) + '…'
-                    : qn.description}
-                </Card.Text>
+  <div
+    dangerouslySetInnerHTML={{
+      __html: qn.description.length > 120
+        ? qn.description.slice(0, 120) + '…'
+        : qn.description
+    }}
+  />
+</Card.Text>
+
                 {qn.tags && qn.tags.length > 0 && (
                   <div>
                     {qn.tags.map(tag => (

@@ -2,6 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Form, Button, Alert, Card, ListGroup, ButtonGroup } from 'react-bootstrap';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
+const modules = {
+  toolbar: {
+    container: [
+      [{ header: [1, 2, false] }],
+      [
+        { align: '' },
+        { align: 'center' },
+        { align: 'right' },
+        { align: 'justify' }
+      ],
+      ['bold', 'italic', 'strike'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['clean']
+    ]
+  }
+};
+
+const formats = [
+  'header', 'align', 'bold', 'italic', 'strike',
+  'list', 'bullet'
+];
 
 const QuestionDetail = () => {
   const { id } = useParams();
@@ -108,7 +132,8 @@ const QuestionDetail = () => {
             <ListGroup.Item key={ans._id} className="mb-2">
               <Card>
                 <Card.Body>
-                  <Card.Text>{ans.content}</Card.Text>
+                  <Card.Text dangerouslySetInnerHTML={{ __html: ans.content }} />
+
                   <Card.Subtitle className="text-muted mb-2">
                     Answered by: {ans?.user?.username || 'Anonymous'}
                   </Card.Subtitle>
@@ -140,22 +165,21 @@ const QuestionDetail = () => {
         </Alert>
       )}
       <Form onSubmit={handleAnswerSubmit}>
-        <Form.Group controlId="answerContent" className="mb-3">
-          <Form.Control
-            as="textarea"
-            rows={5}
-            placeholder="Write your answer here..."
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
-            maxLength={1000}
-            required
-          />
-          <Form.Text muted>Max 1000 characters.</Form.Text>
-        </Form.Group>
-        <Button variant="success" type="submit" className="w-100">
-          Submit Answer
-        </Button>
-      </Form>
+  <Form.Group controlId="answerContent" className="mb-3">
+    <ReactQuill
+      value={answer}
+      onChange={setAnswer}
+      modules={modules}
+      formats={formats}
+      placeholder="Write your answer here..."
+    />
+    <Form.Text muted>Max 1000 characters.</Form.Text>
+  </Form.Group>
+  <Button variant="success" type="submit" className="w-100">
+    Submit Answer
+  </Button>
+</Form>
+
     </div>
   );
 };
